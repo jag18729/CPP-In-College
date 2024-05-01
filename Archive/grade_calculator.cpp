@@ -3,11 +3,8 @@
 // Date: 04/25/2024
 
 // Description:
-// This program calculates the total grade percentage of a student based on the weighted averages of their scores in four
-// categories: projects, quizzes, homework, and midterms. The program prompts the user to input the grades for each category and
-// calculates the total grade percentage based on the specified criteria. The program uses functions to handle input validation,
-// calculate weighted averages, and compute the total grade percentage. The user can choose to calculate another set of grades or
-// exit the program.
+// This program calculates the total grade percentage of a student based on the weighted averages of their scores in four categories: projects, quizzes, homework, and midterms. The program prompts the user to input the grades for each category and calculates the total grade percentage based on the specified criteria. The program uses functions to handle input validation, calculate weighted averages, and compute the total grade percentage. The user can choose to calculate another set of grades or exit the program.
+// Path: grade_calculator.cpp
 
 #include <iostream>
 #include <string>

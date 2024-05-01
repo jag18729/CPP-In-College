@@ -1,7 +1,3 @@
-Sure, here's a streamlined README.md focused specifically on the Project 1 "Grade Calculator" that you mentioned, without references to other projects or the overarching course directory.
-
----
-
 # Grade Calculator Project
 
 This project contains the Grade Calculator program which is designed to calculate the grade percentage based on scores provided for projects, quizzes, homework, and midterms.
