@@ -2,9 +2,9 @@
 triple:          'arm64-apple-darwin'
 binary-path:     '/Users/rjgar/Library/CloudStorage/OneDrive-LosAngelesCommunityCollegeDistrict/Classes/CIS 116/Labbing/CPP-In-College/Pointers/output/passByRef'
 relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003000, symSize: 0x164 }
-  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003000, symSize: 0x164 }
-  - { offsetInCU: 0x69, offset: 0x69, size: 0x8, addend: 0x0, symName: __Z11passByValuei, symObjAddr: 0x164, symBinAddr: 0x100003164, symSize: 0x144 }
-  - { offsetInCU: 0x91, offset: 0x91, size: 0x8, addend: 0x0, symName: __Z15passByReferenceRi, symObjAddr: 0x2A8, symBinAddr: 0x1000032A8, symSize: 0x144 }
-  - { offsetInCU: 0xB9, offset: 0xB9, size: 0x8, addend: 0x0, symName: __Z13passByPointerPi, symObjAddr: 0x3EC, symBinAddr: 0x1000033EC, symSize: 0x11C }
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003300, symSize: 0x1A0 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003300, symSize: 0x1A0 }
+  - { offsetInCU: 0x69, offset: 0x69, size: 0x8, addend: 0x0, symName: __Z11passByValuei, symObjAddr: 0x1A0, symBinAddr: 0x1000034A0, symSize: 0x104 }
+  - { offsetInCU: 0x91, offset: 0x91, size: 0x8, addend: 0x0, symName: __Z15passByReferenceRi, symObjAddr: 0x2A4, symBinAddr: 0x1000035A4, symSize: 0x108 }
+  - { offsetInCU: 0xB9, offset: 0xB9, size: 0x8, addend: 0x0, symName: __Z13passByPointerPi, symObjAddr: 0x3AC, symBinAddr: 0x1000036AC, symSize: 0x140 }
 ...
