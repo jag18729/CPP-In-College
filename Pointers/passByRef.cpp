@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h> // For the sleep function
 
 // Function declarations
 void passByValue(int val);
@@ -9,44 +10,101 @@ int main()
 {
     int x = 5;
 
-    // Print the initial value and memory address of 'x'
-    printf("Initial x = %i, Address of x = %p\n", x, (void *)&x);
+    // Initial state of 'x'
+    printf("Initial State:\n");
+    printf("Memory Address of x: %p\n", (void *)&x);
+    printf(" ┌───────────┐\n");
+    printf(" │  x = %i   │ <─── x\n", x);
+    printf(" └───────────┘\n");
+    sleep(3);
 
     // Call passByValue
+    printf("\nCalling passByValue(x):\n");
     passByValue(x);
-    printf("After passByValue, x = %i, Address of x = %p\n", x, (void *)&x);
+    sleep(3);
 
     // Call passByReference
+    printf("\nCalling passByReference(x):\n");
     passByReference(x);
-    printf("After passByReference, x = %i, Address of x = %p\n", x, (void *)&x);
+    sleep(3);
 
     // Call passByPointer
+    printf("\nCalling passByPointer(&x):\n");
     passByPointer(&x);
-    printf("After passByPointer, x = %i, Address of x = %p\n", x, (void *)&x);
+    sleep(3);
+
+    // Final comparison
+    printf("\nFinal Comparison of x:\n");
+    printf(" ┌──────────────┬───────────────┬──────────────────┬──────────────────┐\n");
+    printf(" │ Initial x    │ After passByValue │ After passByReference │ After passByPointer │\n");
+    printf(" ├──────────────┼───────────────┼──────────────────┼──────────────────┤\n");
+    printf(" │   %i         │       %i        │       %i            │       %i            │\n", 5, 5, 20, 30);
+    printf(" └──────────────┴───────────────┴──────────────────┴──────────────────┘\n\n");
+    sleep(5);
 
     return 0;
 }
 
 void passByValue(int val)
 {
-    // Print the value and address of 'val' (which is a copy)
-    printf("Inside passByValue, val = %i, Address of val = %p (copy of x)\n", val, (void *)&val);
+    printf("Inside passByValue:\n");
+    printf(" ┌────────────┬─────────────┐\n");
+    printf(" │  x = %i     │  val = %i   │\n", 5, val);
+    printf(" ├────────────┼─────────────┤\n");
+    printf(" │  %p  │  %p   │ <── val (copy of x)\n", (void *)&val, (void *)&val);
+    printf(" └────────────┴─────────────┘\n");
+    printf(" val has a different address from x\n");
+    sleep(3);
+
     val = 10;
-    printf("Inside passByValue after change, val = %i, Address of val = %p\n", val, (void *)&val);
+    printf("After modifying val inside passByValue:\n");
+    printf(" ┌────────────┬─────────────┐\n");
+    printf(" │  x = %i     │  val = %i   │\n", 5, val);
+    printf(" ├────────────┼─────────────┤\n");
+    printf(" │  %p  │  %p   │ <── val (modified copy)\n", (void *)&val, (void *)&val);
+    printf(" └────────────┴─────────────┘\n");
+    printf(" x remains unchanged because val is just a copy.\n\n");
+    sleep(3);
 }
 
 void passByReference(int &ref)
 {
-    // Print the value and address of 'ref' (which is the same as 'x')
-    printf("Inside passByReference, ref = %i, Address of ref = %p (same as x)\n", ref, (void *)&ref);
+    printf("Inside passByReference:\n");
+    printf(" ┌────────────┬─────────────┐\n");
+    printf(" │  x = %i     │  ref = %i   │\n", 5, ref);
+    printf(" ├────────────┼─────────────┤\n");
+    printf(" │  %p  │  %p   │ <── ref (alias of x)\n", (void *)&ref, (void *)&ref);
+    printf(" └────────────┴─────────────┘\n");
+    printf(" ref has the same address as x\n");
+    sleep(3);
+
     ref = 20;
-    printf("Inside passByReference after change, ref = %i, Address of ref = %p\n", ref, (void *)&ref);
+    printf("After modifying ref inside passByReference:\n");
+    printf(" ┌────────────┬─────────────┐\n");
+    printf(" │  x = %i    │  ref = %i   │\n", 20, ref);
+    printf(" ├────────────┼─────────────┤\n");
+    printf(" │  %p  │  %p   │ <── ref (modified x)\n", (void *)&ref, (void *)&ref);
+    printf(" └────────────┴─────────────┘\n");
+    printf(" x is changed because ref is an alias to x.\n\n");
+    sleep(3);
 }
 
 void passByPointer(int *ptr)
 {
-    // Print the value pointed to by 'ptr' and the address 'ptr' holds (which is the address of 'x')
-    printf("Inside passByPointer, *ptr = %i, Address of *ptr = %p, Address of ptr = %p\n", *ptr, (void *)ptr, (void *)&ptr);
+    printf("Inside passByPointer:\n");
+    printf(" ┌────────────┬───────────────┬───────────────┐\n");
+    printf(" │   *ptr     │    ptr        │   &ptr        │\n");
+    printf(" ├────────────┼───────────────┼───────────────┤\n");
+    printf(" │   %i       │   %p   │   %p  │ <── ptr points to the address of x\n", *ptr, (void *)ptr, (void *)&ptr);
+    printf(" └────────────┴───────────────┴───────────────┘\n");
+    sleep(3);
+
     *ptr = 30;
-    printf("Inside passByPointer after change, *ptr = %i, Address of *ptr = %p, Address of ptr = %p\n", *ptr, (void *)ptr, (void *)&ptr);
+    printf("After modifying *ptr inside passByPointer:\n");
+    printf(" ┌────────────┬───────────────┬───────────────┐\n");
+    printf(" │   *ptr     │    ptr        │   &ptr        │\n");
+    printf(" ├────────────┼───────────────┼───────────────┤\n");
+    printf(" │   %i       │   %p   │   %p  │ <── *ptr now holds the modified value at x's address\n", *ptr, (void *)ptr, (void *)&ptr);
+    printf(" └────────────┴───────────────┴───────────────┘\n");
+    sleep(3);
 }
